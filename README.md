@@ -28,6 +28,7 @@ returning the cost (string), it's a good idea to search for a method definition 
 ```shell
 grep -ri "cost(" .
 ```
+![grep -ri "cost("](https://dirktoewe.github.io/makerspace_cura_launcher/img/grep_cost.png)
 
 "-ri" enables recursive search and ignores upper and lower cases on characters. As it turns out, both `Cura.util.gcodeInterpreter` and the `Cura.util.sliceEngine` module contain a member method
 which returns a cost string. It appears only latter is printed to screen.
@@ -36,8 +37,13 @@ To find where the printer bed models are loaded, just search for the `*.stl` fil
 ```shell
 grep -ri "\.stl" .
 ```
+![grep -ri "\.stl"](https://dirktoewe.github.io/makerspace_cura_launcher/img/grep_stl.png)
+
 `Cura.gui.sceneView` is the only module loading printer bed models.
 
 ## Modifying the Code
-
-# Results
+The concept was to write a Python script, that loads the Cura libraries, modifies the appropiate methods and finally launches the modified Cura GUI. This a approach has multiple advantages:
+  * all changes are kept in one place
+  * opt-out by not-using the script
+  * no Cura code modified
+  * should work with future versions of Cura (within reason).
