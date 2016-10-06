@@ -42,7 +42,7 @@ grep -ri "\.stl" .
 `Cura.gui.sceneView` is the only module loading printer bed models.
 
 ## Modifying the Code
-The concept was to write a Python script, that loads the Cura libraries, modifies the appropiate methods and finally launches the modified Cura GUI. This a approach has multiple advantages:
+The launcher is a Python script, that loads the Cura libraries, modifies the appropiate methods and finally launches the modified Cura GUI. This a approach has multiple advantages:
   * all changes are kept in one place
   * opt-out by not-using the script
   * no Cura code modified
